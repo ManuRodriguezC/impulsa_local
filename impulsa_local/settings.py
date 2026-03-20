@@ -43,7 +43,7 @@ ROOT_URLCONF = 'impulsa_local.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'impulsa_local' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
