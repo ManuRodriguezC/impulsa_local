@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0; 
+    padding: 0       
+}
+h1, p { /* Para los títulos grandes y textos normales*/
+    font-family: 'Lora', serif;    
+}
+.cta-btn { /* Para los botones */
+    font-family: 'Inter', sans-serif;
+}
+:root {
+    --color-base: #386963;       
+    --color-destacado: #EBA800;  
+    --color-texto-hero: #ffffffd2; 
+}
+/* --------------HERO-------------- */
+.hero {           
+    height: 100vh;    
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.459) 0%, rgba(255, 255, 255, 0) 10%), linear-gradient(rgba(0, 0, 0, 0.219), rgba(0, 0, 0, 0.219)), url(../img/ciudad-nueva.jpg);    
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    display: flex;
+    flex-direction: column;        
+}
+.cta-btn { 
+    display: inline-flex;      
+    align-items: center;      
+    justify-content: center;   
+    text-decoration: none;         
+    background-color: var(--color-base);
+    margin: 10px;
+    width: 250px;
+    height: 50px;     
+    border-radius: 80px;
+    border: none;
+    font-size: 17px;
+    font-weight: bold;    
+    color: var(--color-texto-hero);
+    cursor: pointer;          
+}
+.cta-btn:hover {
+  background-color: #386963c7; 
+}
+.cta-btn:active {
+  background-color: #274945; 
+  transform: translateY(1px); 
+}
+.hero-title {       
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+    font-size: 70px;
+    color: var(--color-texto-hero);   
+}
+.hero-form, input{        
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 15px;
+}

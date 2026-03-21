@@ -111,8 +111,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
+STATICFILES_DIRS = [    
+    os.path.join(BASE_DIR, 'impulsa_local', 'static')
 ]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
