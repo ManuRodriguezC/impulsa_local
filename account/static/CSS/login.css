@@ -5,9 +5,6 @@ body {
     margin: 0; 
     padding: 0;       
 }
-h1, p, label{ 
-    font-family: 'Lora', serif;    
-}
 .cta-btn { 
     font-family: 'Inter', sans-serif;
 }
@@ -15,6 +12,10 @@ h1, p, label{
     --color-base: #0D446F;       
     --color-destacado: #EBA800;  
     --color-texto-hero: #ffffffd2; 
+}
+h1, p, label{ 
+    font-family: 'Lora', serif;    
+    color: var(--color-base);  
 }
 /* --------------HERO-------------- */
 .hero {
@@ -26,19 +27,19 @@ h1, p, label{
     display: flex;
     flex-direction: column;  
 }
-.hero-form { 
-    /* background-color: green;   */
+.hero-form {     
     display: flex;
     flex-direction: column;
     align-items: center;   
 }
-h1 {
-    /* background-color: greenyellow; */
+.hero-title {    
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: var(--color-base);
+    flex-direction: column;
+    align-items: center;    
     padding-top: 80px;
+}
+.hero-title p {
+    font-size: 17px;
 }
 .hero-input { /* Input containers */
     position: relative;      
