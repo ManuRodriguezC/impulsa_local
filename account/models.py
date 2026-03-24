@@ -9,7 +9,7 @@ class CustomUser(AbstractUser):
         ('admin', 'Administrador'),
     )
         
-    document = models.IntegerField(unique=True)
+    document = models.IntegerField(unique=True, blank=True, null=True)
     phone = models.IntegerField(null=True, blank=True, unique=True)
     address = models.CharField(null=True, blank=True, max_length=200)
     

@@ -11,6 +11,7 @@ from .forms import RegisterForm
 
 class CustomLoginView(LoginView):
     template_name = 'login.html'
+    redirect_authenticated_user = True
 
     def form_valid(self, form):
         form.get_user()
@@ -29,6 +30,7 @@ class RegisterView(CreateView):
     form_class = RegisterForm
     template_name = 'register.html'
     success_url = reverse_lazy('dashboard')
+    redirect_authenticated_user = True
 
     def form_valid(self, form):
         user = form.save(commit=False)

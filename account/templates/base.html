@@ -1,21 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>{% block title %}Impulsa Local{% endblock %}</title>
-      {% block extra_head %}
-      {% endblock %}
-  </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Impulsa Local{% endblock %}</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'CSS/base.css' %}">
+        {% block extra_head %}
+        {% endblock %}
+    </head>
 
-  <body>
-      <div>
-          <div>
-              <main>
-                  {% block content %}
-                  {% endblock %}
-              </main>
-          </div>
-      </div>
-  </body>
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">
+                🚀 MiApp
+            </div>
+
+            <nav class="menu">
+                <a href="#">Dashboard</a>
+                <a href="#">Proyectos</a>
+                <a href="#">Usuarios</a>
+            </nav>
+        </aside>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- HEADER -->
+            <header class="header">
+
+                <!-- Icono settings -->
+                <span>⚙️</span>
+
+                {% if user.is_authenticated %}
+                    <!-- Avatar -->
+                    <div class="avatar">
+                        {{ user.username|first|upper }}
+                    </div>
+
+                    <!-- Logout -->
+                    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="link-btn" style="background:none;border:none;cursor:pointer;">
+                            Logout
+                        </button>
+                    </form>
+                {% else %}
+                    <!-- Login -->
+                    <a href="{% url 'login' %}" class="link-btn">Login</a>
+                {% endif %}
+
+            </header>
+
+            <!-- MAIN -->
+            <main class="main">
+                {% block content %}
+                {% endblock %}
+            </main>
+
+        </div>
+    </div>
+
+    </body>
 </html>

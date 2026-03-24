@@ -6,7 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: impulsa_local
-    command: python manage.py runserver 0.0.0.0:8000
+    #command: sh -c "sleep infinity"
+    command: sh -c "./wait-for-it.sh db python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
     ports:

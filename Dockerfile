@@ -8,7 +8,7 @@ WORKDIR /app
 RUN adduser --disabled-password --gecos "" appuser
 
 RUN apt-get update \
-    && apt-get install -y gcc libpq-dev curl \
+    && apt-get install -y gcc libpq-dev curl netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
