@@ -5,7 +5,7 @@ body {
     margin: 0; 
     padding: 0;       
 }
-h1, p { 
+h1, p, label{ 
     font-family: 'Lora', serif;    
 }
 .cta-btn { 
@@ -55,10 +55,11 @@ h1 {
     outline: none;
 }
 .hero-input label {
+    font-size: 15px;
     position: absolute;
     top: 5px;
     left: 0;
-    color: var(--color-base);
+    color: #74c3ff;
     transition: 0.3s;
     pointer-events: none;
 }
@@ -66,9 +67,9 @@ h1 {
 .hero-input input:valid+label {
     top: -10px;
     color: var(--color-base);
-    font-size: 16px;
+    font-size: 12px;
 }
-.hero-input .underline {
+.hero-input .underline {    
     position: absolute;
     bottom: 0;
     left: 0;
@@ -93,7 +94,7 @@ button {
     text-decoration: none;         
     background-color: var(--color-base);
     margin: 5px;
-    width: 200px;
+    width: 250px;
     height: 40px;     
     border-radius: 80px;
     border: none;
