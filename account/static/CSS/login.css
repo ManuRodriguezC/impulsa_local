@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0; 
+    padding: 0;       
+}
+h1, p { 
+    font-family: 'Lora', serif;    
+}
+.cta-btn { 
+    font-family: 'Inter', sans-serif;
+}
+:root {
+    --color-base: #0D446F;       
+    --color-destacado: #EBA800;  
+    --color-texto-hero: #ffffffd2; 
+}
+/* --------------HERO-------------- */
+.hero {
+    height: 100vh;    
+    background-image: url(../img/Imagen-estatica.png);    
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    display: flex;
+    flex-direction: column;  
+}
+.hero-form { 
+    /* background-color: green;   */
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+h1 {
+    /* background-color: greenyellow; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: var(--color-base);
+    padding-top: 80px;
+}
+.hero-input { /* Input containers */
+    position: relative;      
+    width: 250px;  
+    margin: 50px auto;
+}
+.hero-input input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 10px 0;
+    font-size: 15px; 
+    background-color: transparent;
+    outline: none;
+}
+.hero-input label {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    color: var(--color-base);
+    transition: 0.3s;
+    pointer-events: none;
+}
+.hero-input input:focus+label,
+.hero-input input:valid+label {
+    top: -10px;
+    color: var(--color-base);
+    font-size: 16px;
+}
+.hero-input .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--color-base);
+    transform: scaleX(0);
+    transition: 0.3s;
+}
+.hero-input input:focus~.underline,
+.hero-input input:valid~.underline {
+    transform: scaleX(1);
+}
+.cta-btn { /* Buttom */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+button {    
+    align-items: center;     
+    justify-content: center;   
+    text-decoration: none;         
+    background-color: var(--color-base);
+    margin: 5px;
+    width: 200px;
+    height: 40px;     
+    border-radius: 80px;
+    border: none;
+    font-size: 17px;
+    font-weight: bold;    
+    color: var(--color-texto-hero);
+    cursor: pointer;  
+}
+button:hover {
+  background-color: #2980b9; 
+}
+button:active {
+  background-color: #1c5980; 
+  transform: translateY(1px); 
+}
+.hero-options { /*Opciones de recuperación*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+    color: var(--color-base);
+    padding-top: 40px;
+}
