@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Impulsa Local</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <main>
+        <div>
+            Crear Cuenta
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div>
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Usuario -->
+            <div>
+                <label for="username">Usuario</label>
+                <input type="text" name="username" id="username" placeholder="Ingresa usuario" required>
+                {{ form.username.errors }}
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label for="email">Correo</label>
+                <input type="email" name="email" id="email" placeholder="Ingresa tu correo" required>
+                {{ form.email.errors }}
+            </div>
+
+            <!-- Password -->
+            <div>
+                <label for="password1">Contraseña</label>
+                <input type="password" name="password1" id="password1" placeholder="Ingresa contraseña" required>
+                {{ form.password1.errors }}
+            </div>
+
+            <!-- Confirm Password -->
+            <div>
+                <label for="password2">Confirmar Contraseña</label>
+                <input type="password" name="password2" id="password2" placeholder="Confirma contraseña" required>
+                {{ form.password2.errors }}
+            </div>
+
+            <!-- Tipo de usuario -->
+            <div>
+                <label>
+                    <input type="checkbox" name="is_entrepreneur" id="is_entrepreneur">
+                    Soy emprendedor
+                </label>
+            </div>
+
+            <button type="submit">Registrarse</button>
+        </form>
+
+        <p>
+            ¿Ya tienes cuenta?
+            <a href="{% url 'login' %}">Inicia sesión</a>
+        </p>
+    </main>
+</body>
+</html>
