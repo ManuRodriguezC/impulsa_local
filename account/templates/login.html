@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Impulsa Local</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    </head>
+    <body>
+        <main>
+            <div>
+                Iniciar Sesión
+            </div>
+
+            <form method="POST">
+                {% csrf_token %}
+                
+                {% if form.non_field_errors %}
+                    <div>
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                    </div>
+                {% endif %}
+                
+                <div>
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username" placeholder="Ingresa usuario" required>
+                </div>
+
+                <div>
+                    <label for="password">Contraseña</label>
+                    <div>
+                    <input type="password" id="password" name="password" placeholder="Ingresa contraseña" required>
+                    </div>
+                </div>
+
+                <button type="submit">Iniciar Sesión</button>
+             </form>
+
+                <p>
+                    No tienes cuenta?
+                    <a href="{% url 'register' %}">Registrar cuenta</a>
+                </p>
+                <p>
+                    Olvido su contraseña?
+                    <a href="#" >Recuperar contraseña</a>
+                </p>
+        </main>
+    </body>
+</html>
