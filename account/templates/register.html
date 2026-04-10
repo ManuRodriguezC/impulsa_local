@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Impulsa Local</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:wght@500;600&display=swap" rel="stylesheet">  
+    {% load static %}  
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">     
+</head>
+<body>
+<main class="hero">
+        <h1 class="hero-title">Crea tu cuenta</h1>
+        <div class="hero-form">
+            <form method="POST">
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                <div>
+                    {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            <!-- Usuario -->
+                <div class="hero-input">
+                    <input type="text" name="username" id="username" required>
+                    <label for="username">Ingresa tu usuario</label>
+                    {{ form.username.errors }}
+                </div>
+            <!-- Email -->
+                <div class="hero-input">
+                    <input type="email" name="email" id="email" required>
+                    <label for="email">Ingresa tu correo</label>
+                    {{ form.email.errors }}
+                </div>
+            <!-- Password -->
+                <div class="hero-input">
+                    <input type="password" name="password1" id="password1" required>
+                    <label for="password1">Ingresa tu contraseña</label>
+                    {{ form.password1.errors }}
+                </div>
+            <!-- Confirm Password -->
+                <div class="hero-input">
+                    <input type="password" name="password2" id="password2" required>
+                    <label for="password2">Confirma tu contraseña</label>
+                    {{ form.password2.errors }}
+                </div>
+            <!-- Tipo de usuario -->
+                <div class="hero-user-type">
+                    <label><input type="checkbox" name="is_entrepreneur" id="is_entrepreneur"> Soy emprendedor</label>
+                </div>
+                <div class="cta-btn">
+                    <button type="submit">Registrarse</button>
+                </div>            
+            </form>
+        </div>
+        <div class="hero-account-confirmation">
+            <p>¿Ya tienes cuenta?<a href="{% url 'login' %}"> Inicia sesión</a></p>
+        </div>       
+    </main>
+</body>
+</html>

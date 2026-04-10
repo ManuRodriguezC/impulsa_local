@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Impulsa Local</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:wght@500;600&display=swap" rel="stylesheet">  
+        {% load static %}
+        <!-- Styles -->
+        <link rel="stylesheet" href="{% static 'CSS/login.css' %}">
+    </head>
+    <body>
+        <main class="hero">
+            <div class="hero-title">
+                <h1>¡Bienvenido a Impulsa Local!</h1>
+                <p>El portal de apoyo para emprendedores de Ciudad Nueva</p>
+            </div>
+            <div class="hero-form">
+                <form method="POST">
+                    {% csrf_token %}                    
+                    {% if form.non_field_errors %}
+                    <div>
+                        {% for error in form.non_field_errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                        {% endif %} 
+                    <div class="hero-input">
+                        <input type="text" id="username" name="username" required>
+                        <label for="input">Ingresa tu usuario</label>
+                        <span class="underline"></span>
+                    </div>
+                    <div class="hero-input">
+                        <input type="password" id="password" name="password" required>
+                        <label for="input">Ingresa tu contraseña</label>
+                        <span class="underline"></span>
+                    </div>
+                    <div class="cta-btn">
+                        <button type="submit">Iniciar Sesión</button>
+                    </div>
+                </form>
+            </div>
+            <div class="hero-options">
+                <p>¿No tienes cuenta? <a href="{% url 'register' %}">Registrar cuenta</a></p>
+                <p>¿Olvidaste tu contraseña? <a href="#" >Recuperar contraseña</a></p>
+            </div>
+        </main>
+    </body>
+</html>
